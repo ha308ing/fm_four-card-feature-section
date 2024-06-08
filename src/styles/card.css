@@ -1,0 +1,64 @@
+@define-mixin card $type, $color: transparent {
+  .card[data-type="$(type)"] {
+    background-image: url("assets/icon-$(type).svg");
+    border-color: $color;
+  }
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: 0.4em;
+  padding: 1.5em 1.9em;
+  border-top: 0.27em solid transparent;
+  box-shadow: 0 1.3em 1.4em
+    color-mod(color-mod(var(--grayishBlue) blend(var(--blue) 60%)) alpha(20%));
+  background-repeat: no-repeat;
+  background-position: bottom 17.8% right 11.1%;
+  background-size: 18%;
+  min-block-size: 23.5vh;
+}
+
+.card_title {
+  color: var(--veryDarkBlue);
+  font-weight: 600;
+  font-size: 1.33em;
+  margin-block-end: 0.3rem;
+}
+
+.card_text {
+  font-size: 0.88em;
+  line-height: 1.7;
+}
+
+@mixin card supervisor, var(--cyan) {
+}
+
+@mixin card team-builder, var(--red) {
+}
+
+@mixin card karma, var(--orange) {
+}
+
+@mixin card calculator, var(--blue) {
+}
+
+@media (--desktop) {
+  .card {
+    max-inline-size: 23.3em;
+    min-block-size: 15.65rem;
+    padding: 1.8em 2.1em;
+    background-size: 18.2%;
+    background-position: bottom 17.8% right 11.2%;
+  }
+
+  .card:first-child {
+    grid-area: left;
+  }
+  .card:last-child {
+    grid-area: right;
+  }
+
+  .card_title {
+    margin-block-end: 0.6rem;
+  }
+}

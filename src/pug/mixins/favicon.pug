@@ -1,0 +1,12 @@
+mixin favicon(icon)
+  -
+    const regexp = /.*\.(.+)$/
+    const match = regexp.exec(icon)
+    const matchtype =  match === null ? null : match[1]
+    const type = 
+    matchtype === "png" ? "image/png" : matchtype === "ico" ? "image/x-icon" : null
+  if type
+    link(rel="shortcut icon", href=icon, type=type)
+  else
+    link(rel="shortcut icon", href=icon)
+  

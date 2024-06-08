@@ -1,0 +1,11 @@
+html {
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-image: url("pixel-glass/mobile-design.jpg");
+}
+
+@media (--desktop) {
+  html {
+    background-image: url("pixel-glass/desktop-design.jpg");
+  }
+}

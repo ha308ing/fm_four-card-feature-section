@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@csstools/postcss-global-data": "2.1.1",
+    "autoprefixer": "10.4.19",
+    "cssnano": "7.0.2",
+    "gulp": "5.0.0",
+    "gulp-postcss": "10.0.0",
+    "gulp-pug": "5.0.0",
+    "postcss": "8.4.38",
+    "postcss-color-mod-function": "3.0.3",
+    "postcss-custom-media": "10.0.6",
+    "postcss-custom-properties": "13.3.10",
+    "postcss-font-magician": "4.0.0",
+    "postcss-import": "16.1.0",
+    "postcss-mixins": "10.0.1",
+    "pug": "3.0.3"
+  },
+  "dependencies": {
+    "minireset.css": "0.0.7",
+    "pixel-glass": "1.0.13"
+  },
+  "browserslist": "defaults"
+}

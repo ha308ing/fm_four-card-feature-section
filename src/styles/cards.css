@@ -1,0 +1,16 @@
+.cards {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.6em;
+}
+
+@media (--desktop) {
+  .cards {
+    display: grid;
+    grid-template:
+      "left mid right" 1fr
+      "left mid right" 1fr / 1fr 1fr 1fr;
+    align-items: center;
+    gap: calc(2rem - 3px) 1.9rem;
+  }
+}

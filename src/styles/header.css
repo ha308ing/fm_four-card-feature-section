@@ -29,7 +29,7 @@
 
 @media (--desktop) {
   .header {
-    max-inline-size: 55ch;
+    max-inline-size: 59ch;
     margin-inline: auto;
     margin-block-end: 6.7vh;
   }

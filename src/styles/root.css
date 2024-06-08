@@ -22,8 +22,12 @@ body {
 }
 
 @media (--desktop) {
+  body {
+    place-items: center;
+  }
+
   #root {
-    padding-block: 8vh;
+    padding-block: initial;
     max-inline-size: initial;
   }
 }

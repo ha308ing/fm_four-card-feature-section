@@ -1,28 +1,48 @@
-name: NodeJS with Gulp
+name: Build and Deploy
 
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
+    
 jobs:
-  build:
+  deploy:
+    
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    environment:
+      name: production
+      url: ${{ steps.deployment.pages.outputs.page_url }}
+    
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
+    
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Build
-      run: |
-        npm install
-        gulp
+      - name: checkout repo
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: setup node.js
+        uses: actions/setup-node@v4.0.1
+        with:
+          node-version: '18.x'
+          
+      - name: configure github pages
+        uses: actions/configure-pages@v4
+          
+      - run: npm install
+      
+      - run: gulp
+      
+      - name: upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+          
+      - name: deploy to pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.3
+          
+        
